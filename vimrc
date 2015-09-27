@@ -45,6 +45,10 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set relativenumber      " Set line numbers to be relative
+colorscheme koehler
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -95,6 +99,9 @@ if has("autocmd")
     \ endif
 
   augroup END
+  
+  " automatically rebalance windows on vim resize
+  autocmd VimResized * :wincmd =
 
 else
 
@@ -117,6 +124,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-eunuch'
+Plug 'kchmck/vim-coffee-script'
+Plug 'christoomey/vim-tmux-navigator'
 " Add plugins to &runtimepath
 call plug#end()
 
