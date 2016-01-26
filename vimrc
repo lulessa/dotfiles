@@ -45,16 +45,22 @@ set incsearch		" do incremental searching
 set relativenumber      " Set line numbers to be relative
 colorscheme koehler
 
-" zoom a vim pane, <C-w>= to re-balance
+" zoom a vim pane, zoom vertically, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>\ :wincmd _<cr>
 nnoremap <leader>= :wincmd =<cr>
 
 " Vim-Rspec key mappings
-let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+let g:rspec_command = "VtrSendCommandToRunner! rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>f :VtrFocusRunner<CR>
+
+" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -109,6 +115,9 @@ if has("autocmd")
   " automatically rebalance windows on vim resize
   autocmd VimResized * :wincmd =
 
+  " Associate .es6 files with javascript syntax
+  autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
 else
 
   set autoindent		" always set autoindenting on
@@ -131,10 +140,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
 Plug 'kchmck/vim-coffee-script'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'thoughtbot/vim-rspec'
+Plug 'ngmy/vim-rubocop'
 " Add plugins to &runtimepath
 call plug#end()
 
