@@ -146,6 +146,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'thoughtbot/vim-rspec'
 Plug 'ngmy/vim-rubocop'
+Plug 'elixir-lang/vim-elixir'
+Plug 'slim-template/vim-slim'
 " Add plugins to &runtimepath
 call plug#end()
 
