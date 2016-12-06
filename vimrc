@@ -151,3 +151,9 @@ Plug 'slim-template/vim-slim'
 " Add plugins to &runtimepath
 call plug#end()
 
+" Status and tab line colors more contrasting.
+hi StatusLine ctermfg=Black ctermbg=White
+hi StatusLineNC ctermfg=White ctermbg=Black
+hi TabLine ctermfg=White ctermbg=DarkGrey
+hi TabLineSel ctermfg=White ctermbg=Black
+hi Title ctermfg=LightGrey
