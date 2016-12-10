@@ -50,12 +50,13 @@ nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>\ :wincmd _<cr>
 nnoremap <leader>= :wincmd =<cr>
 
-" Vim-Rspec key mappings
-let g:rspec_command = "VtrSendCommandToRunner! rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" make test commands execute using dispatch.vim
+let test#strategy = "vtr"
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 map <Leader>f :VtrFocusRunner<CR>
 
 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
@@ -142,9 +143,10 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 Plug 'kchmck/vim-coffee-script'
+" Plug 'vim-airline/vim-airline' " It is not allowing me to commit with git.
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
-Plug 'thoughtbot/vim-rspec'
+Plug 'janko-m/vim-test'
 Plug 'ngmy/vim-rubocop'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slim-template/vim-slim'
