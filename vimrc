@@ -142,6 +142,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'kchmck/vim-coffee-script'
 " Plug 'vim-airline/vim-airline' " It is not allowing me to commit with git.
 Plug 'christoomey/vim-tmux-navigator'
@@ -150,6 +151,7 @@ Plug 'janko-m/vim-test'
 Plug 'ngmy/vim-rubocop'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slim-template/vim-slim'
+Plug 'Yggdroot/indentLine'
 " Add plugins to &runtimepath
 call plug#end()
 
